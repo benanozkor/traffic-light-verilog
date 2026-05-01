@@ -21,31 +21,29 @@ traffic_light_controller uut (
     .debug(debug)
 );
 
-// Clock
+
 always #5 clk = ~clk;
 
-// Dump for GTKWave
+
 initial begin
     $dumpfile("traffic.vcd");
     $dumpvars(0, tb_traffic);
 end
 
-// Simulation
+
 initial begin
     clk = 0;
     reset = 1;
     night_mode = 0;
 
     #10 reset = 0;
-
-    // Normal operation
     #300;
 
-    // Night mode ON
+    
     night_mode = 1;
     #150;
 
-    // Back to normal
+    
     night_mode = 0;
     #300;
 
