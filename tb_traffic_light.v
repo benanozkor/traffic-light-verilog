@@ -1,15 +1,12 @@
 `timescale 1ns/1ps
-
 module tb_traffic;
 
 reg clk;
 reg reset;
 reg night_mode;
-
 wire north, east, south, west;
 wire [2:0] debug;
 
-// Instantiate
 traffic_light_controller uut (
     .clk(clk),
     .reset(reset),

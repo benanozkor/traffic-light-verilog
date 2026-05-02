@@ -14,11 +14,10 @@ reg [2:0] next_state;
 reg [3:0] counter;
 
 
-parameter S0=0, S1=1, S2=2, S3=3,
-          S4=4, S5=5, S6=6, S7=7;
-
+parameter S0=0, S1=1, S2=2, S3=3, S4=4, S5=5, S6=6, S7=7;
 
 parameter GREEN_TIME = 3;
+
 parameter RED_TIME   = 1;
 
 assign debug = state;
@@ -63,14 +62,12 @@ always @(*) begin
 end
 
 always @(*) begin
-    // default = RED
     north = 0;
     east  = 0;
     south = 0;
     west  = 0;
 
     if (night_mode) begin
-        // blink all lights
         north = counter[0];
         east  = counter[0];
         south = counter[0];
